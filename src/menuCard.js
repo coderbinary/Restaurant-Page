@@ -1,0 +1,43 @@
+import Bruschetta from "./images/Bruschetta.png";
+import CrispyCalamari from "./images/CrispyCalamari.png";
+import StuffedMushrooms from "./images/StuffedMushrooms.png";
+import FalafelBites from "./images/FalafelBites.png";
+import MargheritaPizza from "./images/MargheritaPizza.png";
+import VegAlfredoPasta from "./images/VegAlfredoPasta.png";
+import GrilledChickenSteak from "./images/GrilledChickenSteak.png";
+import PaneerTikkaWrap from "./images/PaneerTikkaWrap.png";
+import ChocolateLavaCake from "./images/ChocolateLavaCake.png";
+import NewYorkCheesecake from "./images/NewYorkCheesecake.png";
+import Tiramisu from "./images/Tiramisu.png";
+import MangoPannaCotta from "./images/MangoPannaCotta.png";
+import FreshLemonade from "./images/FreshLemonade.png";
+import ColdCoffee from "./images/ColdCoffee.png";
+import MangoSmoothie from "./images/MangoSmoothie.png";
+import  MintMojito from "./images/MintMojito.png";
+let images = {Bruschetta,CrispyCalamari,StuffedMushrooms,FalafelBites,MargheritaPizza,VegAlfredoPasta,GrilledChickenSteak,PaneerTikkaWrap,ChocolateLavaCake,NewYorkCheesecake,Tiramisu,MangoPannaCotta,FreshLemonade,ColdCoffee,MangoSmoothie,MintMojito};
+
+export function createMenuCard(card){
+  const menuCard = document.createElement("div");
+  menuCard.classList.add("menu-card");
+  const menuCardImg = document.createElement("div");
+  menuCardImg.classList.add("menu-card--img");
+  menuCard.append(menuCardImg);
+  const img = document.createElement("img");
+  const image = images[card.item.replace(/\s/g, "")];
+  img.src = image;
+  menuCardImg.append(img);
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+  menuCard.append(overlay);
+  const item = document.createElement("h4");
+  item.classList.add("item");
+  item.textContent = card.item;
+  const description = document.createElement("p");
+  description.classList.add("description");
+  description.textContent = card.description;
+  const cost = document.createElement("p");
+  cost.classList.add("cost");
+  cost.textContent = card.cost;
+  overlay.append(item,description,cost);
+  return menuCard;
+}
